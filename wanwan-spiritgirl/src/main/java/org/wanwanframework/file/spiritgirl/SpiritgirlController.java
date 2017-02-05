@@ -24,7 +24,12 @@ public class SpiritgirlController {
 
 	public SpiritgirlController() {
 		Map<String, String> urlMap = LineTool.getLine("./src/main/resources/spirit/url.txt", ":\t");
-		String path = urlMap.get("path");
+		String path = null;
+		for(String key : urlMap.keySet()) {
+			if(key.indexOf("path") > -1) {
+				path = urlMap.get("path");
+			}
+		}
 		config = LineTool.getLine(path, ":\t");
 	}
 
