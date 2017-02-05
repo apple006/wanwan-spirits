@@ -23,7 +23,9 @@ public class SpiritgirlController {
 	private Map<String, String> templateMap = new HashMap<String, String>();
 
 	public SpiritgirlController() {
-		config = LineTool.getLine("./src/main/resources/spirit/start.txt", ":\t");
+		Map<String, String> urlMap = LineTool.getLine("./src/main/resources/spirit/url.txt", ":\t");
+		String path = urlMap.get("path");
+		config = LineTool.getLine(path, ":\t");
 	}
 
 	public void init() {
